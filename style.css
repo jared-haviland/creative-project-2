@@ -1,5 +1,32 @@
-body{
+body {
 	background-image: url("pics/flagBackground.png");
-	
+}
 
+h1 {
+	margin-top: 20px;
+	font-family: 'Holtwood One SC';
+	font-size: 40px;
+    text-align: center;
+}
+
+#picture {
+    width: 100%;
+    text-align: center;
+}
+
+img {
+	width: 25%;
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+#joke {
+    width: 50%;
+    padding-top: 27px;
+    font-size: 23px;
+    font-family: 'Headland One';
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
 }
