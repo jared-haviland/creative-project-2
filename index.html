@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Chuck Norris Jokes</title>
+<style>
+
+  h1 {
+    text-align: center;
+  }
+  #picture {
+    width: 100%;
+    text-align: center;
+  }
+  img {
+    display: inline-block;
+  }
+  #joke {
+    width: 400px;
+    padding-top: 27px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+</style>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+<script>
+
+	var imgNumber = Math.round(Math.random()*(9));
+	
+  var myurl= "http://api.icndb.com/jokes/random?exclude=[nerdy,explicit]";
+  console.log(myurl);
+  $.ajax({
+    url : myurl,
+    crossDomain: true,
+    dataType : "json",
+    success : function(parsed_json) {
+      console.log(parsed_json);
+    
+  $("#chuck-image").attr("src", "pics/Pic"+imgNumber+".jpg");
+  $("#joke").html(JSON.stringify(parsed_json.value["joke"]));
+    }
+  });
+
+</script>
+
+</head>
+<body>
+
+<h1 id="title">Chuck Norris Jokes</h1>
+<div id="picture"><img id="chuck-image" src=""></div>
+<div id="joke"></div>
+
+</body>
+</html>
