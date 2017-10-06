@@ -1,28 +1,32 @@
 <html>
 <head>
 <title>Chuck Norris Jokes</title>
-<link href="style.css?v=2.3" rel="stylesheet" type="text/css" />
+<link href="style.css?v=1.0" rel="stylesheet" type="text/css" />
 <link href='https://fonts.googleapis.com/css?family=Holtwood One SC' rel='stylesheet'>
 <link href='https://fonts.googleapis.com/css?family=Headland One' rel='stylesheet'>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
 
-	var imgNumber = Math.round(Math.random()*(9));
-	
-  var myurl= "http://api.icndb.com/jokes/random?exclude=[nerdy,explicit]";
-  console.log(myurl);
-  $.ajax({
-    url : myurl,
-    crossDomain: true,
-    dataType : "json",
-    success : function(parsed_json) {
-      console.log(parsed_json);
-    
-  $("#chuck-image").attr("src", "pics/Pic"+imgNumber+".jpg");
-  $("#joke").html(JSON.stringify(parsed_json.value["joke"]));
-    }
-  });
+  function newJoke() {
+    var myurl= "http://api.icndb.com/jokes/random?exclude=[nerdy,explicit]";
+    console.log(myurl);
+    $.ajax({
+      url : myurl,
+      crossDomain: true,
+      dataType : "json",
+      success : function(parsed_json) {
+        console.log(parsed_json);
 
+        var imgNumber = Math.round(Math.random()*(8)) + 1;
+        $("#chuck-image").attr("src", "pics/Pic"+imgNumber+".jpg");
+        $("#joke").html(JSON.stringify(parsed_json.value["joke"]));
+      }
+    });
+  }
+
+	$(document).ready(function() {
+    newJoke();
+  });
 </script>
 
 </head>
@@ -31,7 +35,7 @@
 <h1 id="title">Chuck Norris Jokes</h1>
 <div id="picture"><img id="chuck-image" src=""></div>
 <div id="joke"></div>
-<button calss = "refresh"><image src="pics/reload-button.png></button>
+<div id="button-container"><button id="refresh-button" onclick="newJoke()"><img id="button-image" src="pics/reload-button.png"></button></div>
 
 </body>
 </html>

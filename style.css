@@ -1,5 +1,5 @@
 body {
-	background-image: url("pics/flagBackground.png");
+	background-image: url("pics/flagBackground.png")
 }
 
 h1 {
@@ -14,8 +14,8 @@ h1 {
     text-align: center;
 }
 
-img {
-	width: 25%;
+#chuck-image {
+	height: 40%;
     display: inline-block;
     margin-top: 5px;
     margin-bottom: 15px;
@@ -28,9 +28,22 @@ img {
     font-family: 'Headland One';
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-.refresh {
-	width: 20px;	
+#button-container {
+    width: 100%;
+    text-align: center;
+}
+
+#refresh-button {
+	width: 70px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+#button-image {
+    width: 40px;
 }
